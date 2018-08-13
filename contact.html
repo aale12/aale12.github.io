@@ -10,7 +10,7 @@
     <script src="main.js"></script>
 </head>
 <body>
-    <header><!-- HEADER HERE --></header>
+        <header>Copyright &copy;</header>
     <!--Top part of the page!!-->
     <div class = "topBar">
     <nav class = "header">
@@ -29,10 +29,21 @@
         <h2>Contact</h2>
         <hr>
         <p class = "contactsummary">
-
-            </p>
-                    
+         </p>
+         <form action="action_page.php">
+                <label for="fname">Name</label>
+                <input type="text" id="fname" name="fullname" placeholder="Your name..">
+           
+                <label for="email">Email</label>
+                <input type="text" id="email" name="fullemail" placeholder="Your email..">
+            
+                <label for="subject">Message</label>
+                <textarea id="subject" name="subject" placeholder="Write something.."></textarea>
+            
+                <input type="submit" value="Submit">
+            
+              </form>                
     </div>
-    <footer>Copyright &copy; 2018</footer>
+    <footer>Copyright &copy;</footer>
 </body>
 </html>
