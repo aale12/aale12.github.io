@@ -1,0 +1,14 @@
+img{
+    border: 1px solid black;
+    margin:20px;
+}
+body{
+    background: bisque;
+}
+h1{
+    font-size: 30px;
+    padding: 20px;
+}
+.content-wrapper{
+    padding: 20px;
+}
