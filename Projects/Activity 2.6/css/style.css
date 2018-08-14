@@ -1,0 +1,18 @@
+h1{
+    padding:20px;
+    font-size: 32px;
+}
+body{
+    background: url("../images/Turtle-turtles-40775207-2560-1600\ \(1\).jpg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+    width:1000px;
+    margin: auto;
+}
+img{
+    webkit-filter: blur(3px); 
+    -moz-filter: blur(3px); 
+    -o-filter: blur(3px); 
+    -ms-filter: blur(3px); 
+    filter: blur(3px);
+}
