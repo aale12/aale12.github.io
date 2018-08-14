@@ -23,15 +23,21 @@ header{
 .name{
     text-align:center;
     font-size:32px;
+    padding: 20px;
     background-color: #500000;
     color: #ffffff;
     float:left;
     width:200px;
     position:relative;
     right: 21px;
-    top: 80px;
+    top: 108px;
     font-family: 'Crimson Text', 'Georgia', serif;
     opacity:1;
+}
+h2{
+    font-family: 'Crimson Text', 'Georgia', serif;
+    font-size: 20px;
+    font-weight:bold;
 }
 /*Name and clickable pages "contact, portfolio, about"*/
 ul{
@@ -96,7 +102,6 @@ hr{
     line-height:1.7em;
     color: #707373;
     /*find out how to make the footer sticky without having giant blank space in the about me*/
-    flex:1;
 }
 /* .push{
     margin:auto;
@@ -132,9 +137,14 @@ footer{
     height:75px;
     background: #332c2c;
     color: #ffffff;
-    flex-shrink:0;
+    /* flex-shrink:0; */
+    /* position:fixed; */
+    margin: auto auto 0 auto;
     border-top: 7px solid #500000;
     line-height:75px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
 form{
     font-family: 'Tungsten A', 'Tungsten B', sans-serif;
