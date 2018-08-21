@@ -1,0 +1,301 @@
+/*My name in the navbar*/
+/* header{
+    text-align:center;
+    height:75px;
+    background: #332c2c;
+    flex-shrink:0;
+    border-bottom: 7px solid #500000;
+    color:#ffffff;
+    line-height:75px;
+} */
+.topBar{
+    background-color:#d6d3c4;
+    margin:0px;
+}
+.header{
+    background-color:#d6d3c4;
+    margin: auto;
+    opacity: 1;
+    height:68px;
+    max-width:960px;
+}
+.name{
+    text-align:center;
+    font-size:28px;
+    padding: 20px;
+    background-color: #500000;
+    color: #ffffff;
+    float:left;
+    width:200px;
+    font-family: 'Crimson Text', 'Georgia', serif;
+    opacity:1;
+}
+h2{
+    font-family: 'Crimson Text', 'Georgia', serif;
+    font-size: 20px;
+    font-weight:bold;
+}
+/*Name and clickable pages "contact, portfolio, about"*/
+ul{
+    list-style-type: none;
+    margin:0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+}
+li{
+    overflow:hidden;
+    display:inline;
+}
+
+
+li a{
+    float:right;
+    text-align:center;
+    display:block;
+    color:#707373;
+    text-decoration:none;
+    padding: 14px 16px;
+    line-height: 40px; 
+    /* position:relative;
+    left:21px;
+    top:117px;  */
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+    opacity:1;
+    z-index:4; 
+    background:#d6d3c4;
+    border-right: 1px solid #332c2c;
+}
+li a:first-child{
+    border-right:none;
+}
+
+li a:hover{
+    background-color: #500000;
+}
+.isActive {
+    background: #500000;
+}
+/*nav bar only no header*/
+
+/*header including navbar*/
+a{
+    display: block;
+    padding: 8px;
+    background-color: #ffffff;
+}
+.projLinks{
+    padding:0;
+}
+.projLinkNoPicture{
+    display:none;
+}
+hr{
+    color: #500000;
+    height:1px;
+    margin:0px;
+
+}
+.main{
+    background-color: #ffffff;
+    max-width: 960px;
+    width:960px;
+    margin: 20px auto;
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+    border: 1px solid #332c2c;
+    padding: 0 20px 20px 20px;
+    overflow:visible;
+    line-height:1.7em;
+    color: #707373;
+    /*find out how to make the footer sticky without having giant blank space in the about me*/
+}
+.main:after{
+    content: \200b;
+}
+/* .push{
+    margin:auto;
+    border:auto;
+    padding: 20px;
+    flex:1;
+    background: #ffffff;
+} */
+html, body{
+    height:100%;
+}
+body{
+    background-image: url("../images/professional-portfolio-background-12.jpg");
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+img{
+    float:left;
+    height: 200px;
+    width: 200px;
+    padding: 20px;
+}
+h2{
+    text-align:left;
+    color: #500000;
+    padding: 25px;
+    margin: 0px auto 0px auto;
+    font-family: 'Crimson Text', 'Georgia', serif;
+}
+footer{
+    text-align:center;
+    height:75px;
+    background: #332c2c;
+    color: #ffffff;
+    /* flex-shrink:0; */
+    /* position:fixed; */
+    margin: auto auto 0 auto;
+    border-top: 7px solid #500000;
+    line-height:75px;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+form{
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+}
+input[type=text], select, textarea {
+    width: 100%; 
+    padding: 20px; 
+    border: 1px solid #332c2c; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
+    resize: vertical;
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    background-color: #500000;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+}
+#subject{
+    height:200px;
+}
+
+
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+/* .projects{
+    box-sizing:inherit;
+} */
+.projects::after{
+    display:table;
+    width:50%
+}
+.column{
+    float:left;
+    width:50%;
+}
+.placeholder{
+    position:relative;
+    width:250px;
+    height:250px;
+    margin:20px auto 0 auto;
+}
+.placeholder:first-child{
+    margin:0 auto;
+}
+.placeholder p{
+    position:absolute;
+    transform:translate(50%,100%);
+    top:1em;
+    left:-1em;
+    color: #500000;
+    font-size: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    font-family: 'Tungsten A', 'Tungsten B', sans-serif;
+}
+@media screen and (max-width:1000px){
+    .main{
+        width:100%;
+        padding:0px;
+    }
+    form{
+        padding:20px;
+    }
+    header{
+        width:100%;
+    }
+    .topBar{
+        width:100%;
+    }
+    .aboutText{
+        padding:20px;
+    }
+}
+@media screen and (max-width:600px){
+    .name{
+        text-align:center;
+        padding:2px 0 8px 0;
+        width:100%;
+        margin:0;
+        line-height:auto;
+    }
+    .header{
+        height:200px;
+    }
+    li a{
+        padding:10px 0px 14px 0px;
+        margin:10px 0px 10px 0px;
+        float:none;
+        width:100%;
+        line-height:20px;
+        height:15px;
+        overflow:hidden;
+    }
+    .projects{
+        width:100%;
+    }
+    .placeholder{
+        overflow:hidden;
+        position:relative;
+    }
+    .column{
+        margin:0 auto;
+        width:100%;
+    }
+    .myPic{
+        float:none;
+        display:block;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width:360){
+    .projects{
+        width:100%;
+    }
+    .column{
+        width:100%;
+    }
+    .placeholder{
+        margin:0 auto;
+        
+    }
+}
+@media only screen and (max-width:250px){
+    .projects{
+        display:none;
+    }
+    .projLinkNoPicture{
+        display:block;
+        margin:0 auto;
+        text-align:center;
+    }
+    .myPic{
+        width:75%;
+        height:auto;
+    }
+}
