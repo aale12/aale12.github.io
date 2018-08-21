@@ -1,5 +1,5 @@
 /*My name in the navbar*/
-header{
+/* header{
     text-align:center;
     height:75px;
     background: #332c2c;
@@ -7,7 +7,7 @@ header{
     border-bottom: 7px solid #500000;
     color:#ffffff;
     line-height:75px;
-}
+} */
 .topBar{
     background-color:#d6d3c4;
     margin:0px;
@@ -16,21 +16,17 @@ header{
     background-color:#d6d3c4;
     margin: auto;
     opacity: 1;
-    height:180px;
+    height:68px;
     max-width:960px;
-
 }
 .name{
     text-align:center;
-    font-size:32px;
+    font-size:28px;
     padding: 20px;
     background-color: #500000;
     color: #ffffff;
     float:left;
     width:200px;
-    position:relative;
-    right: 21px;
-    top: 108px;
     font-family: 'Crimson Text', 'Georgia', serif;
     opacity:1;
 }
@@ -46,24 +42,25 @@ ul{
     padding: 0px 0px 0px 0px;
 }
 li{
-    float:right;
+    overflow:hidden;
     display:inline;
 }
 
 
 li a{
+    float:right;
     text-align:center;
     display:block;
     color:#707373;
     text-decoration:none;
     padding: 14px 16px;
-    line-height: 35px;
-    position:relative;
+    line-height: 40px; 
+    /* position:relative;
     left:21px;
-    top:117px;
+    top:117px;  */
     font-family: 'Tungsten A', 'Tungsten B', sans-serif;
     opacity:1;
-    z-index:4;
+    z-index:4; 
     background:#d6d3c4;
     border-right: 1px solid #332c2c;
 }
@@ -85,6 +82,12 @@ a{
     padding: 8px;
     background-color: #ffffff;
 }
+.projLinks{
+    padding:0;
+}
+.projLinkNoPicture{
+    display:none;
+}
 hr{
     color: #500000;
     height:1px;
@@ -93,7 +96,8 @@ hr{
 }
 .main{
     background-color: #ffffff;
-    width: 960px;
+    max-width: 960px;
+    width:960px;
     margin: 20px auto;
     font-family: 'Tungsten A', 'Tungsten B', sans-serif;
     border: 1px solid #332c2c;
@@ -102,6 +106,9 @@ hr{
     line-height:1.7em;
     color: #707373;
     /*find out how to make the footer sticky without having giant blank space in the about me*/
+}
+.main:after{
+    content: \200b;
 }
 /* .push{
     margin:auto;
@@ -185,23 +192,110 @@ input[type=submit]:hover {
 } */
 .projects::after{
     display:table;
+    width:50%
 }
 .column{
     float:left;
     width:50%;
 }
 .placeholder{
-    margin-left:120px;
-    width:300px;
-    height:300px;
+    position:relative;
+    width:250px;
+    height:250px;
+    margin:20px auto 0 auto;
+}
+.placeholder:first-child{
+    margin:0 auto;
 }
 .placeholder p{
     position:absolute;
-    transform: translate(34%,100%);
+    transform:translate(50%,100%);
+    top:1em;
+    left:-1em;
     color: #500000;
     font-size: 20px;
     background-color: #ffffff;
     padding: 20px;
     font-family: 'Tungsten A', 'Tungsten B', sans-serif;
-
+}
+@media screen and (max-width:1000px){
+    .main{
+        width:100%;
+        padding:0px;
+    }
+    form{
+        padding:20px;
+    }
+    header{
+        width:100%;
+    }
+    .topBar{
+        width:100%;
+    }
+    .aboutText{
+        padding:20px;
+    }
+}
+@media screen and (max-width:600px){
+    .name{
+        text-align:center;
+        padding:2px 0 8px 0;
+        width:100%;
+        margin:0;
+        line-height:auto;
+    }
+    .header{
+        height:200px;
+    }
+    li a{
+        padding:10px 0px 14px 0px;
+        margin:10px 0px 10px 0px;
+        float:none;
+        width:100%;
+        line-height:20px;
+        height:15px;
+        overflow:hidden;
+    }
+    .projects{
+        width:100%;
+    }
+    .placeholder{
+        overflow:hidden;
+        position:relative;
+    }
+    .column{
+        margin:0 auto;
+        width:100%;
+    }
+    .myPic{
+        float:none;
+        display:block;
+        margin: 0 auto;
+    }
+}
+@media screen and (max-width:360){
+    .projects{
+        width:100%;
+    }
+    .column{
+        width:100%;
+    }
+    .placeholder{
+        margin:0 auto;
+        
+    }
+}
+@media only screen and (max-width:250px){
+    .projects{
+        display:none;
+    }
+    .projLinkNoPicture{
+        display:block;
+        margin:0 auto;
+        text-align:center;
+    }
+    .myPic{
+        width:75%;
+        height:auto;
+    }
 }
