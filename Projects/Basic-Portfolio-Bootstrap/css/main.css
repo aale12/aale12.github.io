@@ -1,0 +1,9 @@
+body{
+    background-image: url("../images/professional-portfolio-background-12.jpg");
+    margin-bottom:4.5em;
+}
+@media (min-width: 1200px) {
+    .container{
+        max-width: 960px;
+    }
+}
