@@ -1,0 +1,55 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Flowers Guessing Game</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="assets/css/style.css">
+    </head>
+
+<body>
+<!--Header and nav to portfolio-->
+<div class = "container-fluid sticky-top p-0">
+        <nav class="navbar navbar-light bg-light">       
+                <span class="navbar-brand mb-0 h1 roundedh-50">
+                    <h1>
+                        Anthony Le
+                    </h1>
+                </span>
+                <ul class="nav nav-tabs justify-content-end">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="../Basic-Portfolio-Bootstrap/portfolio.html">My Other Projects</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+<!--Body of the Game-->
+    <div class="container">
+        <div class="jumbotron mt-3">
+            <h1 class="display-6">Flowers Guessing Game!</h1>
+            <p class="lead">Guess the flower! Press the reset button to get started!</p>
+            <hr class="my-4">
+            <p id="emptyWord"class="text-center display-3"></p>
+            <p id="guessesLeft"class="text-center display-5">guesses left</p>
+            <p id="guessedLetters"class="text-center display-5">You have guessed:</p>
+            <p id="won"></p>
+            <p id="lost"></p>
+            <button onclick = buttonFunction() type="button" class="btn btn-primary">Reset</button>
+        </div>
+    </div>
+<!--Footer-->
+<div class = "container-fluid bg-light fixed-bottom">
+        <footer class = "bg-light">
+            <div class ="footer-copyright text-center py-3">
+                © 2018 Copyright
+            </div>
+        </footer>
+    </div>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src = "assets/javascript/game.js"></script>
+
+</body>
+</html>

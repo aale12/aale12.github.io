@@ -1,0 +1,13 @@
+.red{
+    color:red;
+}
+.green{
+    color:green;
+}
+.hidden{
+    display:none;
+}
+body{
+    background-image: url("../../../Basic-Portfolio-Bootstrap/images/professional-portfolio-background-12.jpg");
+    margin-bottom:4.5em;
+}
