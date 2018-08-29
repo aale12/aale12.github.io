@@ -35,6 +35,8 @@ function resetGame() //resets the game when you win or lose
     letters = theWord.split('');
     lettersRemain = theWord.length;
     correctLetters=[];
+    guessedLetters = [];
+    guessedLettersVisible.textContent = "You have guessed: " + guessedLetters;
     for (var i = 0; i < theWord.length; i++)
     {
         onScreen[i] = "_ ";
