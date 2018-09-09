@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Star Wars Game</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="text-center" id="gameMessage">
+                Choose your Character!
+            </h1>
+        </div>
+            <div class="row text-center m-0">
+                <!--Rey-->
+                <div class="col-md-3" id="reyDoc">
+                    <span class="availableChar" id="reyAvailable">
+                    <img class="img-fluid" src="assets/media/images/reyImage.jpg">
+                    <p>Rey</p>
+                    <p class="hp">150</p>
+                    </span>
+                </div>
+                <!--Luke-->
+                <div class="col-md-3" id="lukeDoc">
+                    <span class="availableChar" id="lukeAvailable">
+                    <img class="img-fluid" src="./assets/media/images/lukeImage.jpg">
+                    <p>Luke Skywalker</p>
+                    <p class="hp">175</p>
+                    </span>
+                </div>
+                <!--Finn-->
+                <div class="col-md-3" id="finnDoc">
+                    <span class="availableChar" id="finnAvailable">
+                    <img class="img-fluid" src="./assets/media/images/finnImage.jpg">
+                    <p>Finn</p>
+                    <p class="hp">200</p>
+                    </span>
+                </div>
+                <!--Han-->
+                <div class="col-md-3" id="hanDoc">
+                    <span class="availableChar" id="hanAvailable">
+                    <img class="img-fluid" src="./assets/media/images/hanImage.jpg">
+                    <p>Han Solo</p>
+                    <p class="hp">125</p>
+                    </span>
+                </div>
+            </div>
+        <!--Chosen Char goes Here-->
+            <div class="row" id="yourChar">
+                <h2>Your Character</h2>
+                <div class="col-md" id="myCharacter">
+
+                </div>
+            </div>
+        <!--Enemies-->
+        <h2>Enemies</h2>
+            <div class="row text-center visible" id="enemies">
+            <!--Ajunta Pall-->
+                <div class="col-md" id="ajuntaDoc">
+                    <span class="enemy" id="ajuntaEnemy">
+                    <img class="img-fluid" src="./assets/media/images/ajuntaImage.jpg">
+                    <p>Ajunta Pall</p>
+                    <p class="hp">500</p>
+                    </span>
+                </div>
+
+            <!--Naga Sadow-->
+                <div class="col-md" id="nagaDoc">
+                    <span class="enemy" id="nagaEnemy">
+                    <img class="img-fluid" src="./assets/media/images/nagaImage.jpg">
+                    <p>Naga Sadow</p>
+                    <p class="hp">300</p>
+                    </span>
+                </div>
+            <!--Freedon Nadd-->
+                <div class="col-md" id="freedonDoc">
+                    <span class="enemy" id="freedonEnemy">
+                    <img class="img-fluid" src="./assets/media/images/freedonImage.jpg">
+                    <p>Freedon Nadd</p>
+                    <p class="hp">200</p>
+                    </span>
+                </div>
+            <!--Marka Ragnos-->
+                <div class="col-md" id="markaDoc">
+                    <span class="enemy" id="markaEnemy">
+                    <img class="img-fluid" src="./assets/media/images/markaImage.jpg">
+                    <p>Marka Ragnos</p>
+                    <p class="hp">400</p>
+                    </span>
+                </div>
+            </div>
+
+        <!--Fight Area-->
+            <div class="row" id="fightZone">
+                <h2>FightZone</h2>
+                <div class="col-md" id="attackerDoc"></div>        
+            </div>
+
+            <div class="row" id="defender">
+                <h2>Defender</h2>
+                <div class="col-md" id="defenderDoc"></div>
+            </div>
+
+
+        </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+    <script src="assets/javascript/game.js"></script>
+</body>
+
+</html>
