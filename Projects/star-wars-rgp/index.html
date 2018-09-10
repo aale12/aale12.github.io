@@ -12,104 +12,132 @@
 </head>
 
 <body>
+    <!--Header and nav to portfolio-->
+    <div class="container-fluid sticky-top p-0">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1 roundedh-50">
+                <h1>
+                    Anthony Le
+                </h1>
+            </span>
+            <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../Basic-Portfolio-Bootstrap/portfolio.html">My Other Projects</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!--Game Consoles-->
     <div class="container">
-        <div class="jumbotron">
+        <div class="jumbotron sticky-top">
+            <button type="button" class="btn btn-warning btn-sm audioButton">Audio On</button>
             <h1 class="text-center" id="gameMessage">
-                Choose your Character!
+                Choose your character!
             </h1>
-        </div>
-            <div class="row text-center m-0">
-                <!--Rey-->
-                <div class="col-md-3" id="reyDoc">
-                    <span class="availableChar" id="reyAvailable">
-                    <img class="img-fluid" src="assets/media/images/reyImage.jpg">
-                    <p>Rey</p>
-                    <p class="hp">150</p>
-                    </span>
-                </div>
-                <!--Luke-->
-                <div class="col-md-3" id="lukeDoc">
-                    <span class="availableChar" id="lukeAvailable">
-                    <img class="img-fluid" src="./assets/media/images/lukeImage.jpg">
-                    <p>Luke Skywalker</p>
-                    <p class="hp">175</p>
-                    </span>
-                </div>
-                <!--Finn-->
-                <div class="col-md-3" id="finnDoc">
-                    <span class="availableChar" id="finnAvailable">
-                    <img class="img-fluid" src="./assets/media/images/finnImage.jpg">
-                    <p>Finn</p>
-                    <p class="hp">200</p>
-                    </span>
-                </div>
-                <!--Han-->
-                <div class="col-md-3" id="hanDoc">
-                    <span class="availableChar" id="hanAvailable">
-                    <img class="img-fluid" src="./assets/media/images/hanImage.jpg">
-                    <p>Han Solo</p>
-                    <p class="hp">125</p>
-                    </span>
-                </div>
-            </div>
-        <!--Chosen Char goes Here-->
-            <div class="row" id="yourChar">
-                <h2>Your Character</h2>
-                <div class="col-md" id="myCharacter">
+            <div class="buttonDiv text-center">
+                <button type="button" class="btn btn-danger btn-lg attackButton hidden">Attack</button>
+                <button type="button" class="btn btn-success btn-lg continueButton hidden">Select another opponent</button>
+                <button type="button" class="btn btn-info btn-lg restartButton hidden">Restart</button>
 
-                </div>
             </div>
+        </div>
+    </div>
+    <div class = "container m-auto">
+        <!--Characters-->
+        <div class="row text-center">
+            <!--Rey-->
+            <div class="col-md card m-2"  id="reyDoc">
+                <span class="availableChar" id="reyAvailable" value="0">
+                    <img class="card-img-top p-1" src="./assets/media/images/reyImage.jpg">
+                    <p class ="text-align-bottom">Rey</p>
+                    <p class="hp text-align-bottom">215 HP</p>
+                </span>
+            </div>
+            <!--Luke-->
+            <div class="col-md card m-2"  id="lukeDoc">
+                <span class="availableChar" id="lukeAvailable" value="1">
+                    <img class="card-img-top p-1" src="./assets/media/images/lukeImage.jpg">
+                    <p>Luke Skywalker</p>
+                    <p class="hp">250 HP</p>
+                </span>
+            </div>
+            <!--Finn-->
+            <div class="col-md card m-2"  id="finnDoc">
+                <span class="availableChar" id="finnAvailable" value="2">
+                    <img class="card-img-top p-1" src="./assets/media/images/finnImage.jpg">
+                    <p>Finn</p>
+                    <p class="hp">340 HP</p>
+                </span>
+            </div>
+            <!--Han-->
+            <div class="col-md card m-2"  id="hanDoc">
+                <span class="availableChar" id="hanAvailable" value="3">
+                    <img class="card-img-top p-1" src="./assets/media/images/hanImage.jpg">
+                    <p>Han Solo</p>
+                    <p class="hp">150 HP</p>
+                </span>
+            </div>
+        </div>
         <!--Enemies-->
-        <h2>Enemies</h2>
-            <div class="row text-center visible" id="enemies">
+        <div class="row text-center visible" id="enemies">
             <!--Ajunta Pall-->
-                <div class="col-md" id="ajuntaDoc">
-                    <span class="enemy" id="ajuntaEnemy">
-                    <img class="img-fluid" src="./assets/media/images/ajuntaImage.jpg">
+            <div class="col-md card m-2" id="ajuntaDoc">
+                <span class="enemy" id="ajuntaEnemy" value="0">
+                    <img class="card-img-top p-1" src="./assets/media/images/ajuntaImage.jpg">
                     <p>Ajunta Pall</p>
-                    <p class="hp">500</p>
-                    </span>
-                </div>
+                    <p class="hp">500 HP</p>
+                </span>
+            </div>
 
             <!--Naga Sadow-->
-                <div class="col-md" id="nagaDoc">
-                    <span class="enemy" id="nagaEnemy">
-                    <img class="img-fluid" src="./assets/media/images/nagaImage.jpg">
+            <div class="col-md card m-2" id="nagaDoc">
+                <span class="enemy" id="nagaEnemy" value="2">
+                    <img class="card-img-top p-1" src="./assets/media/images/nagaImage.jpg">
                     <p>Naga Sadow</p>
-                    <p class="hp">300</p>
-                    </span>
-                </div>
+                    <p class="hp">300 HP</p>
+                </span>
+            </div>
             <!--Freedon Nadd-->
-                <div class="col-md" id="freedonDoc">
-                    <span class="enemy" id="freedonEnemy">
-                    <img class="img-fluid" src="./assets/media/images/freedonImage.jpg">
+            <div class="col-md card m-2" id="freedonDoc">
+                <span class="enemy" id="freedonEnemy" value="3">
+                    <img class="card-img-top p-1" src="./assets/media/images/freedonImage.jpg">
                     <p>Freedon Nadd</p>
-                    <p class="hp">200</p>
-                    </span>
-                </div>
+                    <p class="hp">200 HP</p>
+                </span>
+            </div>
             <!--Marka Ragnos-->
-                <div class="col-md" id="markaDoc">
-                    <span class="enemy" id="markaEnemy">
-                    <img class="img-fluid" src="./assets/media/images/markaImage.jpg">
+            <div class="col-md card m-2" id="markaDoc">
+                <span class="enemy" id="markaEnemy" value="1">
+                    <img class="card-img-top p-1" src="./assets/media/images/markaImage.jpg">
                     <p>Marka Ragnos</p>
-                    <p class="hp">400</p>
-                    </span>
+                    <p class="hp">400 HP</p>
+                </span>
+            </div>
+        </div>
+        <!--Fight Area-->
+        <h2 class="text-center text-white">FightZone</h2>
+        <div class="row" id="fightZone">
+            <div class="col-md-6" id="attackerDoc">
+                <!--Chosen Char goes Here-->
+                <h2 class="text-white">Your Character</h2>
+                <div class="row text-center" id="yourChar">
+                    <div class="col-md-6 card hidden" id="myChar">
+                        <span class="selectedChar" id="charSelected"></span>
+                    </div>
                 </div>
             </div>
-
-        <!--Fight Area-->
-            <div class="row" id="fightZone">
-                <h2>FightZone</h2>
-                <div class="col-md" id="attackerDoc"></div>        
+            <div class="col-md-6" id="defender">
+                <!--Opponent Area-->
+                <h2 class="text-right text-white">Defender</h2>
+                <div class="row" id="opponent">
+                    <div class="col-md-6" id="blankDefenderDoc"></div>
+                    <div class="col-md-6 card alight-right hidden" id="defenderDoc">
+                        <span class="selectedEnemy text-center" id="enemySelected"></span>
+                    </div>
+                </div>
             </div>
-
-            <div class="row" id="defender">
-                <h2>Defender</h2>
-                <div class="col-md" id="defenderDoc"></div>
-            </div>
-
-
         </div>
+    </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
