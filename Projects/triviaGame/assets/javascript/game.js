@@ -147,8 +147,6 @@ function unAnswered() {
     setTimeout(delay, 3000);
 }
 function checkAnswer() {
-    //userAnswer = $("input[type='radio']:checked").val();
-    //console.log(userAnswer);
     $("#submitButton").addClass("hide");
     if (userAnswer === questionObj[currentQuestion].answer) {
         clearInterval(intervalId);
