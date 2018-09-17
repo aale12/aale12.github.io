@@ -1,88 +1,180 @@
 //declare variables
 var questionObj = [
     {
-        question: "The answer is A.",
-        choices: ["A", "B", "C", "D"],
-        answer: "A",
+        question: "What is the name of Atlanta's major league baseball team?",
+        choices: ["Nationals", "Braves", "Cardinals", "Falcons"],
+        answer: "1",
         name: "A",
-        id: "one"
+        image: "./assets/media/images/Ques1Braves.jpg"
     },
     {
-        question: "The answer is C",
-        choices: ["D", "B", "C", "A"],
-        answer: "C",
+        question: "Houses of the Holy is the fifth studio album by which English rock band?",
+        choices: ["The Beatles", "Queen", "Led Zeppelin", "Pink Floyd"],
+        answer: "2",
         name: "B",
-        id: "two"
+        image: "./assets/media/images/Ques2Led.jpg"
     },
     {
-        question: "The answer is B",
-        choices: ["C", "A", "B", "D"],
-        answer: "B",
-        name: "B",
-        id: "three"
+        question: "Which actor played a FedEx employee that became marooned on an island in the 2000 drama film Cast Away?",
+        choices: ["Geoffrey Blake", "Nick Searcy", "Chris Noth", "Tom Hanks"],
+        answer: "3",
+        name: "C",
+        image: "./assets/media/images/Ques3Tom.jpg"
     },
     {
-        question: "The answer is D",
-        choices: ["D", "B", "A", "C"],
-        answer: "D",
+        question: "What shape is the body of an Erlenmeyer flask?",
+        choices: ["Conical", "Spherical", "Cylindrical", "Toroidal"],
+        answer: "0",
         name: "D",
-        id: "four"
+        image: "./assets/media/images/Ques4Conical.jpg"
+    },
+    {
+        question: "What would a sommelier recommend do you?",
+        choices: ["Wine", "Shoes", "Interior Design", "Jewelry"],
+        answer: "0",
+        name: "E",
+        image: "./assets/media/images/Ques5Somm.jpg"
+    },
+    {
+        question: "What is Greenland called by its Inuit native residents?",
+        choices: ["Avanersuarmiut", "Kaallalit Nunaat", "Kalaallisut oqalussinnaanngilanga", "Paasinngilakkit"],
+        answer: "1",
+        name: "F",
+        image: "./assets/media/images/Ques6Green.png"
+    },
+    {
+        question: "Acrophobia is more commonly known as the fear of what?",
+        choices: ["Sharp Objects", "Rodents", "Farmland", "Heights"],
+        answer: "3",
+        name: "G",
+        image: "./assets/media/images/Ques7Heights.jpg"
+    },
+    {
+        question: "Who wrote the book \"The Wonderful Wizard of Oz\"?",
+        choices: ["Herman Melville", "Charles Dickens", "Nathaniel Hawthorne", "L. Frank Baum"],
+        answer: "3",
+        name: "E",
+        image: "./assets/media/images/Ques8Lyman.jpg"
     }
 ];
-var labels = ["a","b","c","d"]
+var labels = ["a", "b", "c", "d"]
 var answersCorrect = 0;
 var answersWrong = 0;
 var timedOut = 0;
-var timer = 5;
+var timer = 20;
 var intervalId;
 var countdown;
 var currentQuestion = 0;
-var userAnswer = "";
+var userAnswer;
+var inputID = 0;
+
+function reset() {
+    answersCorrect = 0;
+    answersWrong = 0;
+    timedOut = 0;
+    currentQuestion = 0;
+    timer = 20;
+    setNextQuestion();
+    startTimer();
+}
 
 function setNextQuestion() {
-    $("#question").append("<p class='lead'>" + questionObj[currentQuestion].question + "</p>")
-    for (i = 0; i < 4; i++){
-        $("#answers").append("<input type='radio' name=" + questionObj[currentQuestion].name + "/><label for =" + questionObj[currentQuestion].choices[i] + ">"+ questionObj[currentQuestion].choices[i] +"</label><br/>");
+    $("#question").html("<p class='lead'><strong>" + questionObj[currentQuestion].question + "</strong></p>")
+    for (i = 0; i < 4; i++) {
+        $("#answers").append("<label class='m-0 p-2' for =" + inputID + ">" + "<input id=" + inputID + " type='radio' value =" + i + " name=" + questionObj[currentQuestion].name + ">" + questionObj[currentQuestion].choices[i] + "</label><br/>");
+        inputID++;
     }
-    currentQuestion++;
-}
-
-function countDown() {
-    timer--;
-    $("#timer").text(timer + " seconds left.");
-    if (timer < 0){
-        stopTimer();
-        $("#timer").text("You have run out of time!")
-        $("#question, #answers").empty();
-    }
-}
-
-function stopTimer() {
-    clearInterval(intervalId);
 }
 
 function startTimer() {
-    intervalId = setInterval(countDown, 1000); 
+    $("#timer").html(timer + " seconds left.");
+    intervalId = setInterval(countDown, 1000);
+    function countDown() {
+        if (timer === 0) {
+            userAnswer = $("input[type='radio']:checked").val();
+            if (userAnswer === undefined) {
+                $("#submitButton").addClass("hide");
+                unAnswered();
+                clearInterval(intervalId);
+            } else {
+                checkAnswer();
+            }
+        } else if (timer > 0) {
+            timer--;
+        }
+        $("#timer").text(timer + " seconds left.");
+    }
 }
 
-$("#submitButton").on("click", function() {
-    timer = 5;
-    if (currentQuestion < questionObj.length){
+function delay() {
+    if (currentQuestion < questionObj.length - 1) {
+        currentQuestion++;
         $("#question, #answers").empty();
         setNextQuestion();
-        stopTimer();
+        timer = 20;
+        $("#submitButton").removeClass("hide");
         startTimer();
-    }else{
-        stopTimer();
-        $("#question, #answers").empty();
-        $("#timer").text("You have completed the trivia!");
+    } else {
+        gameOver();
     }
+}
+
+function correctAnswer() {
+    answersCorrect++;
+    $("#question").empty();
+    $("#answers").html("Correct! The answer is " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
+    setTimeout(delay, 3000);
+}
+
+function wrongAnswer() {
+    answersWrong++;
+    $("#question").empty();
+    $("#answers").html("Wrong! The answer was " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
+    setTimeout(delay, 3000);
+}
+
+function gameOver() {
+    $("#question").html("You have finished the trivia!")
+    $("#answers").html("Correct: " + answersCorrect + "<br>Incorrect: " + answersWrong + "<br>Score: " + ((answersCorrect / questionObj.length) * 100) + "\%");
+    $("#restartButton").removeClass("hide");
+    $("#submitButton").addClass("hide");
+}
+
+function unAnswered() {
+    timedOut++;
+    $("#question").html("You have run out of time!");
+    $("#answers").html("The answer was " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
+    setTimeout(delay, 3000);
+}
+function checkAnswer() {
+    //userAnswer = $("input[type='radio']:checked").val();
+    //console.log(userAnswer);
+    $("#submitButton").addClass("hide");
+    if (userAnswer === questionObj[currentQuestion].answer) {
+        clearInterval(intervalId);
+        correctAnswer();
+    } else {
+        clearInterval(intervalId);
+        wrongAnswer();
+    }
+}
+$("#restartButton").on("click", function () {
+    $("#question, #answers").empty();
+    $("#restartButton").addClass("hide");
+    $("#submitButton").removeClass("hide");
+    reset();
 });
-$("#startButton").on("click", function(){
-    //console.log(questionObj[0]);
+
+$("#submitButton").on("click", function () {
+    $("#submitButton").addClass("hide");
+    userAnswer = $("input[type='radio']:checked").val();
+    checkAnswer();
+});
+
+$("#startButton").on("click", function () {
+    $("#timer").html(timer + " seconds left.");
     $("#startButton").addClass("hide");
     $("#submitButton").removeClass("hide");
     setNextQuestion();
     startTimer();
-
 });

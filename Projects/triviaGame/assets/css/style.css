@@ -4,3 +4,21 @@
 .show{
     display:show;
 }
+.picture{
+    border:1px solid black;
+}
+body{
+    background-image: url("../media/images/BG.jpg");
+}
+.trans{
+    opacity: 0.90;
+}
+label:hover{
+    border:2px solid rgb(186, 230, 186);
+    border-radius:5px;
+    background: rgb(255, 238, 238);
+}
+
+/* label input[type="radio"]:checked{
+    color: #7dbed8;
+  } */
