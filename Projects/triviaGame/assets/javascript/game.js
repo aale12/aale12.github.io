@@ -88,7 +88,7 @@ function reset() {
 function setNextQuestion() {
     $("#question").html("<p class='lead'><strong>" + questionObj[currentQuestion].question + "</strong></p>")
     for (i = 0; i < 4; i++) {
-        $("#answers").append("<label class='m-0 p-2' for =" + inputID + ">" + "<input id=" + inputID + " type='radio' value =" + i + " name=" + questionObj[currentQuestion].name + ">" + questionObj[currentQuestion].choices[i] + "</label><br/>");
+        $("#answers").append("<label class='m-0 p-2 button' for =" + inputID + ">" + "<input id=" + inputID + " type='radio' value =" + i + " name=" + questionObj[currentQuestion].name + ">" + questionObj[currentQuestion].choices[i] + "</label><br/>");
         inputID++;
     }
     quesDisplay();
@@ -170,6 +170,7 @@ function checkAnswer() {
         wrongAnswer();
     }
 }
+
 $("#restartButton").on("click", function () {
     $("#question, #answers").empty();
     $("#restartButton").addClass("hide");
