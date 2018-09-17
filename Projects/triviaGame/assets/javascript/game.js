@@ -67,60 +67,71 @@ var countdown;
 var currentQuestion = 0;
 var userAnswer;
 var inputID = 0;
-
+//Audio Files
+var correctAudio = new Audio("./assets/media/audio/224.wav");
+var wrongAudio = new Audio("./assets/media/audio/1040.wav");
+var resetAudio = new Audio("./assets/media/audio/2355.wav");
+var startAudio = new Audio("./assets/media/audio/click.mp3");
+var endAudio = new Audio("./assets/media/audio/2073.wav");
+//resets the game to the first question
 function reset() {
     answersCorrect = 0;
     answersWrong = 0;
     timedOut = 0;
     currentQuestion = 0;
     timer = 20;
+    resetAudio.play();
     setNextQuestion();
     startTimer();
 }
-
+//writes next question to the page
 function setNextQuestion() {
     $("#question").html("<p class='lead'><strong>" + questionObj[currentQuestion].question + "</strong></p>")
     for (i = 0; i < 4; i++) {
         $("#answers").append("<label class='m-0 p-2' for =" + inputID + ">" + "<input id=" + inputID + " type='radio' value =" + i + " name=" + questionObj[currentQuestion].name + ">" + questionObj[currentQuestion].choices[i] + "</label><br/>");
         inputID++;
     }
+    quesDisplay();
 }
-
+//timer for each question
 function startTimer() {
     $("#timer").html(timer + " seconds left.");
     intervalId = setInterval(countDown, 1000);
     function countDown() {
-        if (timer === 0) {
-            userAnswer = $("input[type='radio']:checked").val();
-            if (userAnswer === undefined) {
+        if (timer === 0) { //if time has run out
+            userAnswer = $("input[type='radio']:checked").val(); //store what they have checked
+            if (userAnswer === undefined) { //if they havent checked anything, time out the question
                 $("#submitButton").addClass("hide");
                 unAnswered();
                 clearInterval(intervalId);
-            } else {
+            } else { //is something is checked, check the answer
                 checkAnswer();
             }
-        } else if (timer > 0) {
+        } else if (timer > 0) { //if time hasnt run out decrease the clock
             timer--;
         }
         $("#timer").text(timer + " seconds left.");
     }
 }
-
+//delay in between questions
 function delay() {
-    if (currentQuestion < questionObj.length - 1) {
+    if (currentQuestion < questionObj.length - 1) { //limits this function to the amount of questions in the trivia
         currentQuestion++;
         $("#question, #answers").empty();
         setNextQuestion();
         timer = 20;
         $("#submitButton").removeClass("hide");
         startTimer();
-    } else {
+    } else { //if there are no more questions show the end screen
         gameOver();
     }
 }
-
+function quesDisplay() {
+    $("#quesTracker").html("Question " + parseInt(currentQuestion + 1) + " of " + questionObj.length);
+}
 function correctAnswer() {
     answersCorrect++;
+    correctAudio.play();
     $("#question").empty();
     $("#answers").html("Correct! The answer is " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
     setTimeout(delay, 3000);
@@ -128,12 +139,14 @@ function correctAnswer() {
 
 function wrongAnswer() {
     answersWrong++;
+    wrongAudio.play();
     $("#question").empty();
     $("#answers").html("Wrong! The answer was " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
     setTimeout(delay, 3000);
 }
 
 function gameOver() {
+    endAudio.play();
     $("#question").html("You have finished the trivia!")
     $("#answers").html("Correct: " + answersCorrect + "<br>Incorrect: " + answersWrong + "<br>Score: " + ((answersCorrect / questionObj.length) * 100) + "\%");
     $("#restartButton").removeClass("hide");
@@ -142,6 +155,7 @@ function gameOver() {
 
 function unAnswered() {
     timedOut++;
+    wrongAudio.play();
     $("#question").html("You have run out of time!");
     $("#answers").html("The answer was " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
     setTimeout(delay, 3000);
@@ -170,6 +184,7 @@ $("#submitButton").on("click", function () {
 });
 
 $("#startButton").on("click", function () {
+    startAudio.play();
     $("#timer").html(timer + " seconds left.");
     $("#startButton").addClass("hide");
     $("#submitButton").removeClass("hide");
