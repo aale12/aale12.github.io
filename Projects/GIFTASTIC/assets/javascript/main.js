@@ -26,9 +26,9 @@ $(document).on("click", ".gif-btn", function () {
     queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + topics[gifID] + "&limit=10&offset=0&rating=PG-13&lang=en";
 
     $.ajax({ url: queryURL, method: "GET" }).then(function (res) {
-        //console.log(res);
+        console.log(res);
         for (i = 0; i < res.data.length; i++) {
-            $("#gif-view").append("<img class='p-2 gif' value='" + i + "' src='" + res.data[i].images.downsized_still.url + "'>");
+            $("#gif-view").append("<figure ='rating text-center'><figcaption> Rating: " + res.data[i].rating + "</figcaption><img class='m-2 gif' value='" + i + "' src='" + res.data[i].images.downsized_still.url + "'></figure>");
         }
     });
 });
