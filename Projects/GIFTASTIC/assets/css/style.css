@@ -20,9 +20,15 @@ body {
     border-radius:5px;
 }
 figure {
-	display:inline-block;
+    display:inline-block;
 }
-
+figcaption {
+    text-shadow: 
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
 @-webkit-keyframes Gradient {
 	0% {
 		background-position: 0% 50%

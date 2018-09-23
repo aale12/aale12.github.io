@@ -28,7 +28,7 @@ $(document).on("click", ".gif-btn", function () {
     $.ajax({ url: queryURL, method: "GET" }).then(function (res) {
         console.log(res);
         for (i = 0; i < res.data.length; i++) {
-            $("#gif-view").append("<figure ='rating text-center'><figcaption> Rating: " + res.data[i].rating + "</figcaption><img class='m-2 gif' value='" + i + "' src='" + res.data[i].images.downsized_still.url + "'></figure>");
+            $("#gif-view").append("<figure ='rating'><figcaption class='text-center'> Rating: " + res.data[i].rating + "</figcaption><img class='m-2 gif' value='" + i + "' src='" + res.data[i].images.downsized_still.url + "'></figure>");
         }
     });
 });
@@ -42,4 +42,4 @@ $(document).on("click", ".gif", function () {
         $(this).addClass('play')
                     .attr("src", gifLink.replace("_s.gif", ".gif"));
     }
-});
+}); 
