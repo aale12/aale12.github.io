@@ -12,20 +12,70 @@
 </head>
 
 <body>
-    <div class="container-fluid p-1">
-        <div class="jumbotron text-center">
-            <p class="lead text-dark">SUPERGIFS</p>
+
+    <!--Nav Bar-->
+    <div class="container-fluid sticky-top p-0">
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1 roundedh-50">
+                <h1>
+                    Anthony Le
+                </h1>
+            </span>
+            <div class="btn-group mr-2" role="group" aria-label="Second group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    Instructions
+                </button>
+            </div>
+            <button id="toggleNSFW" type="button" class="btn btn-dark mx-3">Toggle Rating: R</button>
+            <ul class="nav nav-tabs justify-content-end">
+                <li class="nav-item">
+                    <a class="nav-link active" href="../Basic-Portfolio-Bootstrap/portfolio.html">My Other Projects</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body text-dark">
+                    <li>Click a button to get 10 gifs</li>
+                    <li>You can click a gif to play/play</li>
+                    <li>Click on the gif rating to copy it to your clipboard!</li>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Main Container-->
+    <div class="container p-1">
+        <div class="jumbotron text-center p-4 m-0">
+            <p class="lead">
+                <h2 class="text-dark">
+                    SUPERGIFS
+                </h2>
+            </p>
             <div class="m-2" id="gif-buttons"></div>
             <form id="gif-form">
                 <label for="gif-search"></label>
-                <input type="text" id="gif-search"><br>
-                <input id="goGif" type="submit" class="btn btn-primary btn-lg m-2" value="Add a new gif topic yo"></button>
+                <input type="text" id="gif-search" placeholder="Search..."><br>
+                <input id="goGif" type="submit" class="btn btn-primary btn-lg m-2" value="Add a new gif topic yo">
 
             </form>
         </div>
     </div>
     <div class="container-fluid">
-        <div id="gif-view" class="">
+        <div id="gif-view">
         </div>
     </div>
 
