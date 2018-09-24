@@ -14,7 +14,7 @@ function renderButtons() {
     }
 }
 
-$("#goGif").on("click", function () {
+$("#goGif").on("click", function (event) {
     event.preventDefault();
     var input = $("#gif-search").val();
     if (topics.indexOf(input) < 0 && input.length > 0) {
@@ -23,8 +23,9 @@ $("#goGif").on("click", function () {
     renderButtons();
     $("#gif-search").val("");
 });
+
 renderButtons();
-$(document).on("click", ".btn", function() {
+$(document).on("click", ".btn", function () {
     var clickAudio = new Audio("./assets/media/audio/click.mp3");
     clickAudio.play();
 });
