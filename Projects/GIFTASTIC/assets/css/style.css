@@ -7,14 +7,10 @@
 .navbar-brand{
 	font-size: 30px;
 }
-.clearfix:after{
-	content: "";
-	display: table;
-	clear: both;
-}
-.clearfix{
-	flex:1 1 auto;
-	overflow: hidden;
+
+.modal-body{
+	padding: 5vh;
+	-moz-padding-start: 8.25vh;
 }
 body {
 	width: 100wh;
