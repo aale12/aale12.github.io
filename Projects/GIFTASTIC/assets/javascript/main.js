@@ -60,27 +60,25 @@ $("#toggleNSFW").on("click", function () {
         $("#toggleNSFW").addClass("btn-dark").removeClass("btn-danger").text("Toggle Rating: R");
     }
 });
-//showing tooltip function
-function setTooltip(btn, message) {
-    $(btn).tooltip('hide').attr('data-original-title', message).tooltip('show');
-}
-//hiding tooltip function
-function hideTooltip(btn) {
-    setTimeout(function () {
-        $(btn).tooltip('hide');
-    }, 1000);
-}
 //copy to clipboard and set the appropriate tooltip
 $(document).on("click", ".clip-btn", function () {
     copyToClipboard($("#img-" + $(this).val()));
-    setTooltip(this, "Copied!");
-    hideTooltip(this);
+    $(this).tooltip('hide').attr('data-original-title', "Copied!").tooltip('show');
+    setTimeout(function () {
+        $(this).tooltip('hide');
+    }, 1000);
 });
 //copy to clipboard function
 function copyToClipboard(element) {
     var $temp = $("<input>");//makes temporary invisible div to hold the text about to be copied in the clipboard
+    var gifLink = $(element).attr("src");
     $("body").append($temp);//appends that text
-    $temp.val($(element).attr("src")).select();//appends the src of whichever gif's rating button was clipped onto the invisible text
+    if (element.hasClass("play") === true){//if gif is currently playing
+        $temp.val($(element).attr("src")).select();//text to be copied is the url
+    } else {//if gif isnt playing
+        $(element).addClass("play").attr("src", gifLink.replace("_s.gif", ".gif"));//make it play set the appropriate url
+        $temp.val($(element).attr("src")).select();
+    }
     document.execCommand("copy");//copies that text into the clipboard
     $temp.remove();//remove the temp div
 }
@@ -90,6 +88,6 @@ $(document).on("click", ".gif", function () {
     if ($(this).hasClass("play")) {
         $(this).attr("src", gifLink.replace(".gif", "_s.gif")).removeClass("play");
     } else {
-        $(this).addClass('play').attr("src", gifLink.replace("_s.gif", ".gif"));
+        $(this).addClass("play").attr("src", gifLink.replace("_s.gif", ".gif"));
     }
 }); 
