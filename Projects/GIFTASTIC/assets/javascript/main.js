@@ -2,8 +2,8 @@ var queryURL;
 var key = "80L0qb0M906AerItOYOwrTz26SfwF3t6";
 var topics = ["cats", "dogs", "horses", "frogs", "pigs"];
 var gifID;
-
-$(document).ready(function() {
+var NSFW = false;
+$(document).ready(function () {
     $("body").tooltip({ selector: '[data-toggle=tooltip]' });
 });
 
@@ -24,12 +24,19 @@ $("#goGif").on("click", function () {
     $("#gif-search").val("");
 });
 renderButtons();
-
+$(document).on("click", ".btn", function() {
+    var clickAudio = new Audio("./assets/media/audio/click.mp3");
+    clickAudio.play();
+});
 $(document).on("click", ".gif-btn", function () {
     $("#gif-view").empty();
     gifID = $(this).val();
     //console.log(gif);
-    queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + topics[gifID] + "&limit=10&offset=0&rating=PG-13&lang=en";
+    if (NSFW === true) {
+        queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + topics[gifID] + "&limit=10&offset=0&rating=R&lang=en";
+    } else {
+        queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + topics[gifID] + "&limit=10&offset=0&rating=PG-13&lang=en";
+    }
     console.log(queryURL);
     $.ajax({ url: queryURL, method: "GET" }).then(function (res) {
         console.log(res);
@@ -41,19 +48,31 @@ $(document).on("click", ".gif-btn", function () {
     });
 });
 
+$("#toggleNSFW").on("click", function () {
+    if (NSFW === false) {
+        NSFW = true;
+        $("#toggleNSFW").addClass("btn-danger").removeClass("btn-dark").text("Toggle Rating: PG-13");
+    } else if (NSFW === true) {
+        NSFW = false;
+        $("#toggleNSFW").addClass("btn-dark").removeClass("btn-danger").text("Toggle Rating: R");
+
+    }
+    console.log(NSFW);
+});
+
 function setTooltip(btn, message) {
     $(btn).tooltip('hide')
-      .attr('data-original-title', message)
-      .tooltip('show');
-  }
-  
-  function hideTooltip(btn) {
-    setTimeout(function() {
-      $(btn).tooltip('hide');
-    }, 1000);
-  }
+        .attr('data-original-title', message)
+        .tooltip('show');
+}
 
-$(document).on("click", ".clip-btn", function(){
+function hideTooltip(btn) {
+    setTimeout(function () {
+        $(btn).tooltip('hide');
+    }, 1000);
+}
+
+$(document).on("click", ".clip-btn", function () {
     //var test = $(this).val();
     //console.log(test);
     copyToClipboard($("#img-" + $(this).val()));
