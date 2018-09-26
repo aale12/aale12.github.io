@@ -2,3 +2,11 @@
     overflow:auto;
     height: 10em;
 }
+.fa-hand-scissors{
+    font-size:2em;
+}
+.fa-hand-scissors:after{
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+}
