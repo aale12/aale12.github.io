@@ -9,7 +9,7 @@ var config = {
   };
   firebase.initializeApp(config);
   var database = firebase.database();
-  var yourName = "";
+  var yourName = "Guest";
 
   $("#username-submit").on("click", function(event){
     event.preventDefault();
@@ -23,10 +23,11 @@ var config = {
 
   $("#chat-submit").on("click", function(event){
     event.preventDefault();
-    var chatMessage = yourName + ":" + $("#chat-input").val().trim();
+    var chatMessage = yourName + ": " + $("#chat-input").val().trim();
+    console.log(chatMessage);
     $("#chat-input").val("");
-    var chatKey = database.ref().child("/chat").push().key;
-    database.ref("/chat" + chatKey).set(chatMessage);
+    var chatKey = database.ref("/chat").push().key;
+    database.ref("chat/" + chatKey).set(chatMessage);
   });
 
   database.ref("/chat").on("child_added", function(snap){
