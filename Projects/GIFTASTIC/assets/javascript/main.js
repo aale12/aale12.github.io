@@ -42,7 +42,6 @@ $(document).on("click", ".gif-btn", function () {
     } else {
         queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + key + "&q=" + topics[gifID] + "&limit=10&offset=0&rating=PG-13&lang=en";
     }
-    console.log(queryURL);
     $.ajax({ url: queryURL, method: "GET" }).then(function (res) {
         for (i = 0; i < res.data.length; i++) {
             //appends the gifs with rating caption as a button
@@ -73,11 +72,10 @@ function copyToClipboard(element) {
     var $temp = $("<input>");//makes temporary invisible div to hold the text about to be copied in the clipboard
     var gifLink = $(element).attr("src");
     $("body").append($temp);//appends that text
-    if (element.hasClass("play") === true){//if gif is currently playing
-        $temp.val($(element).attr("src")).select();//text to be copied is the url
+    if (element.hasClass("play") === true) {//if gif is currently playing
+        $temp.val(gifLink).select();//text to be copied is the url
     } else {//if gif isnt playing
-        $(element).addClass("play").attr("src", gifLink.replace("_s.gif", ".gif"));//make it play set the appropriate url
-        $temp.val($(element).attr("src")).select();
+        $temp.val(gifLink.substr(0, gifLink.length - 6) + ".gif").select();
     }
     document.execCommand("copy");//copies that text into the clipboard
     $temp.remove();//remove the temp div
