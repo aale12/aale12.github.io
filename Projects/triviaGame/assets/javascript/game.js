@@ -1,6 +1,5 @@
 //declare variables
-var questionObj = [
-    {
+var questionObj = [{
         question: "What is the name of Atlanta's major league baseball team?",
         choices: ["Nationals", "Braves", "Cardinals", "Falcons"],
         answer: "1",
@@ -57,7 +56,7 @@ var questionObj = [
         image: "./assets/media/images/Ques8Lyman.jpg"
     }
 ];
-var labels = ["a", "b", "c", "d"]
+var labels = ["a", "b", "c", "d"];
 var answersCorrect = 0;
 var answersWrong = 0;
 var timedOut = 0;
@@ -86,7 +85,7 @@ function reset() {
 }
 //writes next question to the page
 function setNextQuestion() {
-    $("#question").html("<p class='lead'><strong>" + questionObj[currentQuestion].question + "</strong></p>")
+    $("#question").html("<p class='lead'><strong>" + questionObj[currentQuestion].question + "</strong></p>");
     for (i = 0; i < 4; i++) {
         $("#answers").append("<label class='m-0 p-2 button' for =" + inputID + ">" + "<input id=" + inputID + " type='radio' value =" + i + " name=" + questionObj[currentQuestion].name + ">" + questionObj[currentQuestion].choices[i] + "</label><br/>");
         inputID++;
@@ -97,6 +96,7 @@ function setNextQuestion() {
 function startTimer() {
     $("#timer").html(timer + " seconds left.");
     intervalId = setInterval(countDown, 1000);
+
     function countDown() {
         if (timer === 0) { //if time has run out
             userAnswer = $("input[type='radio']:checked").val(); //store what they have checked
@@ -126,9 +126,11 @@ function delay() {
         gameOver();
     }
 }
+
 function quesDisplay() {
     $("#quesTracker").html("Question " + parseInt(currentQuestion + 1) + " of " + questionObj.length);
 }
+
 function correctAnswer() {
     answersCorrect++;
     correctAudio.play();
@@ -147,7 +149,7 @@ function wrongAnswer() {
 
 function gameOver() {
     endAudio.play();
-    $("#question").html("You have finished the trivia!")
+    $("#question").html("You have finished the trivia!");
     $("#answers").html("Correct: " + answersCorrect + "<br>Incorrect: " + answersWrong + "<br>Score: " + ((answersCorrect / questionObj.length) * 100) + "\%");
     $("#restartButton").removeClass("hide");
     $("#submitButton").addClass("hide");
@@ -160,6 +162,7 @@ function unAnswered() {
     $("#answers").html("The answer was " + questionObj[currentQuestion].choices[questionObj[currentQuestion].answer] + "." + "<br><img class = 'fluid-img p-0 picture m-3 col-md-4' src=" + questionObj[currentQuestion].image + ">");
     setTimeout(delay, 3000);
 }
+
 function checkAnswer() {
     $("#submitButton").addClass("hide");
     if (userAnswer === questionObj[currentQuestion].answer) {

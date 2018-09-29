@@ -1,52 +1,66 @@
 //object of objects of heros
-var heroSelection =
-{
-    "1":
-    {
+var heroSelection = {
+    "1": {
         name: "Luke Skywalker",
-        health: 250, attackPower: 6, counterPower: null, image: "./assets/media/images/lukeImage.jpg"
+        health: 250,
+        attackPower: 6,
+        counterPower: null,
+        image: "./assets/media/images/lukeImage.jpg"
     },
-    "0":
-    {
+    "0": {
         name: "Rey",
-        health: 215, attackPower: 8, counterPower: null, image: "./assets/media/images/reyImage.jpg"
+        health: 215,
+        attackPower: 8,
+        counterPower: null,
+        image: "./assets/media/images/reyImage.jpg"
     },
-    "3":
-    {
+    "3": {
         name: "Han Solo",
-        health: 150, attackPower: 15, counterPower: null, image: "./assets/media/images/hanImage.jpg"
+        health: 150,
+        attackPower: 15,
+        counterPower: null,
+        image: "./assets/media/images/hanImage.jpg"
     },
-    "2":
-    {
+    "2": {
         name: "Finn",
-        health: 340, attackPower: 4, counterPower: null, image: "./assets/media/images/finnImage.jpg"
+        health: 340,
+        attackPower: 4,
+        counterPower: null,
+        image: "./assets/media/images/finnImage.jpg"
     }
-}
+};
 
 //object of objects of enemies
-var enemies =
-{
-    "0":
-    {
+var enemies = {
+    "0": {
         name: "Ajunta Pall",
-        health: 500, attackPower: null, counterPower: 10, image: "./assets/media/images/ajuntaImage.jpg"
+        health: 500,
+        attackPower: null,
+        counterPower: 10,
+        image: "./assets/media/images/ajuntaImage.jpg"
     },
-    "1":
-    {
+    "1": {
         name: "Marka Ragnos",
-        health: 400, attackPower: null, counterPower: 15, image: "./assets/media/images/markaImage.jpg"
+        health: 400,
+        attackPower: null,
+        counterPower: 15,
+        image: "./assets/media/images/markaImage.jpg"
     },
-    "2":
-    {
+    "2": {
         name: "Naga Sadow",
-        health: 300, attackPower: null, counterPower: 20, image: "./assets/media/images/nagaImage.jpg"
+        health: 300,
+        attackPower: null,
+        counterPower: 20,
+        image: "./assets/media/images/nagaImage.jpg"
     },
-    "3":
-    {
+    "3": {
         name: "Freedon Nadd",
-        health: 200, attackPower: null, counterPower: 25, image: "./assets/media/images/freedonImage.jpg"
+        health: 200,
+        attackPower: null,
+        counterPower: 25,
+        image: "./assets/media/images/freedonImage.jpg"
     }
-}
+};
 //Chosen Character object and Health/Attack variables
 var myChar = {};
 var myAttack;
@@ -74,10 +88,14 @@ var clash = new Audio('./assets/media/audio/lightsaberClash.mp3');
 function storeChar() {
     for (i = 0; i < 4; i++) {
         switch (identifier) {
-            case i.toString(): myChar.name = heroSelection[i].name;
-            case i.toString(): myChar.health = heroSelection[i].health;
-            case i.toString(): myChar.attackPower = heroSelection[i].attackPower;
-            case i.toString(): myChar.image = heroSelection[i].image;
+            case i.toString():
+                myChar.name = heroSelection[i].name;
+            case i.toString():
+                myChar.health = heroSelection[i].health;
+            case i.toString():
+                myChar.attackPower = heroSelection[i].attackPower;
+            case i.toString():
+                myChar.image = heroSelection[i].image;
                 console.log(myChar);
         }
         myAttack = myChar.attackPower;
@@ -89,10 +107,14 @@ function storeChar() {
 function storeEnemy() {
     for (i = 0; i < 4; i++) {
         switch (identifier) {
-            case i.toString(): enemy.name = enemies[i].name;
-            case i.toString(): enemy.health = enemies[i].health;
-            case i.toString(): enemy.counterPower = enemies[i].counterPower;
-            case i.toString(): enemy.image = enemies[i].image;
+            case i.toString():
+                enemy.name = enemies[i].name;
+            case i.toString():
+                enemy.health = enemies[i].health;
+            case i.toString():
+                enemy.counterPower = enemies[i].counterPower;
+            case i.toString():
+                enemy.image = enemies[i].image;
                 enemyID = i;
                 console.log(enemy);
         }
@@ -124,13 +146,17 @@ function reselectEnemy() {
 //removes the recently defeated enemy from list of available enemies to defeat
 function clearDefeatedEnemy() {
     switch (identifier.toString()) {
-        case "0": $("#ajuntaEnemy, #ajuntaDoc").addClass("invisible");
+        case "0":
+            $("#ajuntaEnemy, #ajuntaDoc").addClass("invisible");
             break;
-        case "1": $("#markaEnemy, #markaDoc").addClass("invisible");
+        case "1":
+            $("#markaEnemy, #markaDoc").addClass("invisible");
             break;
-        case "2": $("#nagaEnemy, #nagaDoc").addClass("invisible");
+        case "2":
+            $("#nagaEnemy, #nagaDoc").addClass("invisible");
             break;
-        case "3": $("#freedonEnemy, #freedonDoc").addClass("invisible");
+        case "3":
+            $("#freedonEnemy, #freedonDoc").addClass("invisible");
             break;
     }
 }
@@ -156,10 +182,10 @@ alert("Forgotten Dark Lords of the Sith from a retconned universe have invaded! 
 $(".audioButton").on("click", function () {
     if (bgm.paused == false) {
         bgm.pause();
-        $(".audioButton").text("Audio On")
+        $(".audioButton").text("Audio On");
     } else {
         bgm.play();
-        $(".audioButton").text("Audio Off")
+        $(".audioButton").text("Audio Off");
     }
 });
 
@@ -177,7 +203,7 @@ $(".availableChar").on("click", function () {
         renderChar();
         $("#myChar").removeClass("hidden");
         $(".availableChar, #reyDoc, #lukeDoc, #finnDoc, #hanDoc").addClass("hidden");
-        $("#gameMessage").text("You've chosen " + myChar.name + "! Choose your opponent!")
+        $("#gameMessage").text("You've chosen " + myChar.name + "! Choose your opponent!");
         characterChosen = true;
     }
 });
@@ -190,7 +216,7 @@ $(".enemy").on("click", function () {
         renderEnemy();
         $("#defenderDoc").removeClass("hidden");
         $(".enemy, .enemiesText, #ajuntaDoc, #nagaDoc, #freedonDoc, #markaDoc").addClass("hidden");
-        $("#gameMessage").text("Your opponent is " + enemy.name + ". Click attack to fight!")
+        $("#gameMessage").text("Your opponent is " + enemy.name + ". Click attack to fight!");
         $(".attackButton").removeClass("hidden");
         enemyChosen = true;
     }
@@ -202,16 +228,16 @@ $(".continueButton").on("click", function () {
     reselectEnemy();
     $(".continueButton").addClass("hidden");
     $("#gameMessage").text("Choose your next opponent");
-})
+});
 
 //attack function
 $(".attackButton").on("click", function () {
-    if (gameEnded === false) {  //if you havent won or lost
-        $("#gameMessage").empty();  // clear the message
-        enemyLife -= myAttack;  //deal damage to enemy
+    if (gameEnded === false) { //if you havent won or lost
+        $("#gameMessage").empty(); // clear the message
+        enemyLife -= myAttack; //deal damage to enemy
         $("#enemySelected").children(".hp").text(enemyLife + " HP remaining"); //update enemy HP value on the page
 
-        if (enemyLife > 0) {  //if enemy is still alive
+        if (enemyLife > 0) { //if enemy is still alive
             $("#gameMessage").text("You attack " + enemy.name + " for " + myAttack + " damage!"); //tell user how much damage they dealt
             myAttack += myChar.attackPower; //increaes player attack power by the base amount
             myLife -= enemy.counterPower; //enemy deals damage to player
@@ -237,7 +263,7 @@ $(".attackButton").on("click", function () {
             $("#enemySelected").children(".hp").text("RIP"); //HP text to RIP
             if (victories === 4) { //if all enemies are defeated
                 gameEnded = true;
-                $("#gameMessage").text("Congratulations! You are victorious!") //you win!
+                $("#gameMessage").text("Congratulations! You are victorious!"); //you win!
                 $(".restartButton").removeClass("hidden"); //restart!
             }
         }
