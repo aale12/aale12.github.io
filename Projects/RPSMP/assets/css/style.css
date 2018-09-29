@@ -2,11 +2,24 @@
     overflow:auto;
     height: 10em;
 }
-.fa-hand-scissors{
+.fas{
     font-size:2em;
 }
-.fa-hand-scissors:after{
-    background-color: #3e8e41;
-    box-shadow: 0 5px #666;
-    transform: translateY(4px);
+body{
+    background:black;
+}
+.show{
+    display:visible;
+}
+
+.hide{
+    display:none;
+}
+.customBorder{
+    border:2px solid rgb(71, 71, 71);
+    border-radius:5px;
+    height: 75%
+}
+#p1-board{
+    border-right:2px solid rgb(71, 71, 71);
 }

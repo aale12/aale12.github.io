@@ -16,18 +16,93 @@
 <body>
     <div class="container p-1">
         <div class="jumbotron text-center m-0">
-            <form>
-                <label for="username-input"></label>
-                <input type="text" id="username-input" placeholder="Name">
-                <input type="submit" id="username-submit" class="btn btn-primary btn-sm m-1" value="Join">
-            </form>
-            <button type="submit" class="btn-sm p-0 m-2 btn btn-danger">
-                <i class="fas fa-hand-scissors btn"></i>
-            </button>
-            
-            <div id="chatZone">
+            <p class="lead" id="gameText">Enter your name to get started!</p>
+            <div id="nameInputDiv">
+                <form>
+                    <label for="username-input"></label>
+                    <input type="text" id="username-input" placeholder="Name">
+                    <input type="submit" id="username-submit" class="btn btn-primary btn-sm m-1" value="Join">
+                </form>
+            </div>
+            <!--Main Game Content-->
+            <div class="row">
+                <!--Player 1 Control-->
+                <div class="col-md-4 p-0 m-0">
+                    <div class="card m-auto" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" id="name-player1">Waiting for Player 1...</h5>
+                            <ul class="card-text text-left stats-player1">
+                                <!-- <li>Wins: </li>
+                                <li>Losses: </li>
+                                <li>Ties: </li> -->
+                            </ul>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <button type="button" class="btn-sm p-0 m-1 btn-p1 btn btn-danger" data-value="rock">
+                                    <i class="fas fa-hand-rock p-1"></i>
+                                </button>
+                                <button type="button" class="btn-sm p-0 m-1 btn-p1 btn btn-danger" data-value="paper">
+                                    <i class="fas fa-hand-paper p-1"></i>
+                                </button>
+                                <button type="button" class="btn-sm p-0 m-1 btn-p1 btn btn-danger" data-value="scissors">
+                                    <i class="fas fa-hand-scissors p-1"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <input type="button" class="btn btn-danger  m-1" id="p1-ready" value="Ready">
+                            <!-- <input type="button" class="btn btn-danger  m-1" id="p1-reset" value="Re-select"> -->
+
+                        </div>
+                    </div>
+                </div>
+                <!--Game Board-->
+                <div class="col-md-4 align-center p-2 m-0" id="gameBoard">
+                    <div class="row my-4 customBorder">
+                        <div class="col-md-6" id="p1-board">
+                            <!-- <img class='img-fluid p-2' src='./assets/media/images/choicePend.png'> -->
+                        </div>
+                        <div class="col-md-6" id="p2-board">
+                            <!-- <img class='img-fluid p-2' src='./assets/media/images/choicePend.png'> -->
+                        </div>
+                    </div>
+                </div>
+                <!--Player 2 Control-->
+                <div class="col-md-4 justify-left p-0 m-0">
+                    <div class="card m-auto" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title" id="name-player2">Waiting for Player 2...</h5>
+                            <ul class="card-text text-left stats-player2">
+                                <!-- <li>Wins: </li>
+                                <li>Losses: </li>
+                                <li>Ties: </li> -->
+                            </ul>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <button type="submit" class="btn-sm p-0 m-1 btn-p2 btn btn-primary" data-value="rock">
+                                    <i class="fas fa-hand-rock p-1"></i>
+                                </button>
+                                <button type="submit" class="btn-sm p-0 m-1 btn-p2 btn btn-primary" data-value="paper">
+                                    <i class="fas fa-hand-paper p-1"></i>
+                                </button>
+                                <button type="submit" class="btn-sm p-0 m-1 btn-p2 btn btn-primary" data-value="scissors">
+                                    <i class="fas fa-hand-scissors p-1"></i>
+                                </button>
+                            </li>
+                        </ul>
+                        <div class="card-body">
+                            <input type="submit" class="btn btn-primary  m-1" id="p1-ready" value="Ready">
+                            <!-- <input type="submit" class="btn btn-primary  m-1" id="p1-reset" value="Re-select"> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--Chat Area-->
+            <div id="chatZone" class="m-3">
                 <div id="chatContent">
-                    <div class="border border-secondary w-50 text-justify data-chat-log bg-light m-auto p-0" id="chatLog"></div>
+                    <div class="border border-secondary w-50 text-justify data-chat-log bg-light m-auto m-3" id="chatLog"></div>
                     <div class="form-group">
                         <label for="chat-input"></label>
                         <textarea maxlength="500" placeholder="Enter Message" class="form-control rounded-0" id="chat-input"
