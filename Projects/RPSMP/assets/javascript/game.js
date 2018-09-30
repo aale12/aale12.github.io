@@ -35,6 +35,24 @@ var p1 = {
     losses: 0,
     ties: 0
 };
+var stats = {
+    "players": {
+        p1Name: "",
+        p2Name: ""
+    },
+    "scores": {
+        p1Wins: 0,
+        p1Losses: 0,
+        p1Ties: 0,
+        p2Wins: 0,
+        p2Losses: 0,
+        p2Ties: 0
+    },
+    "choices": {
+        p1Choice: "",
+        p2Choice: ""
+    }
+};
 var isPlayer = false;
 connectedRef.on("value", function (snap) {
     if (snap.val()) {
@@ -81,78 +99,6 @@ fP.on("value", function (s) {
         //console.log("p2 does not exist");
     }
     if (s.child("p1").exists() && s.child("p2").exists() && refChoices.includes(fP1Choice) && refChoices.includes(fP2Choice)) {
-        // switch (fP1Choice) {
-        //     case "rock":
-        //         switch (fP2Choice) {
-        //             case "rock":
-        //                 p1.ties++;
-        //                 p2.ties++;
-        //                 console.log("draw");
-        //                 gameText.html("It's a draw!");
-        //                 break;
-        //             case "paper":
-        //                 p1.losses++;
-        //                 p2.wins++;
-        //                 console.log("p1lose");
-        //                 gameText.html(s.child("p2/name").val() + " wins!");
-        //                 break;
-        //             case "scissors":
-        //                 p1.wins++;
-        //                 p2.losses++;
-        //                 console.log("p1win");
-        //                 gameText.html(s.child("p1/name").val() + " wins!");
-        //                 break;
-        //         }
-        //         break;
-        //     case 'paper':
-        //         switch (fP2Choice) {
-        //             case 'rock':
-        //                 p1.wins++;
-        //                 p2.losses++;
-        //                 console.log("p1win");
-        //                 gameText.html(s.child("p1/name").val() + " wins!");
-        //                 break;
-        //             case 'paper':
-        //                 p1.ties++;
-        //                 p2.ties++;
-        //                 console.log("draw");
-        //                 gameText.html("It's a draw!");
-        //                 break;
-        //             case 'scissors':
-        //                 p1.losses++;
-        //                 p2.wins++;
-        //                 console.log("p1lose");
-        //                 gameText.html(s.child("p2/name").val() + " wins!");
-
-        //                 break;
-        //         }
-        //         break;
-        //     case 'scissors':
-        //         switch (fP2Choice) {
-        //             case 'rock':
-        //                 p1.losses++;
-        //                 p2.wins++;
-        //                 console.log("p1lose");
-        //                 gameText.html(s.child("p2/name").val() + " wins!");
-
-        //                 break;
-        //             case 'paper':
-        //                 p1.wins++;
-        //                 p2.losses++;
-        //                 console.log("p1win");
-        //                 gameText.html(s.child("p1/name").val() + " wins!");
-
-        //                 break;
-        //             case 'scissors':
-        //                 p1.ties++;
-        //                 p2.ties++;
-        //                 console.log("draw");
-        //                 gameText.html("It's a draw!");
-
-        //                 break;
-        //         }
-        //         break;
-        //}
         if (fP1Choice === fP2Choice) {
             p1.ties++;
             p2.ties++;
@@ -198,7 +144,7 @@ fP.on("value", function (s) {
         console.log(p1);
         $("#p1-board").html("<i class='fas fa-hand-" + fP1Choice + "'>");
         $("#p2-board").html("<i class='fas fa-hand-" + fP2Choice + "'>");
-        d.ref("players/p2/choice").remove();
+        d.ref("players/p2/choice").remove();//why is this not removing :(
         d.ref("players/p1/choice").remove();
         if (yourName === s.child("p1/name").val()) {
             fP1.update(p1);
@@ -209,7 +155,10 @@ fP.on("value", function (s) {
         console.log("checkWInnder");
     }
 });
-
+function updateScore() {
+    fP1.update(p1);
+    fP2.update(p2);
+}
 function nextRound() {
     // d.ref("players/p1/choice").remove();
     // d.ref("players/p2/choice").remove();
@@ -225,13 +174,17 @@ $("#username-submit").on("click", function (event) {
         fP.once("value", function (s) {
             if (s.child("p1").exists() === false) { //if p1 is not set
                 p1.name = yourName; //set local p1 name to entered name
+                //stats.players.p1Name = yourName;
                 fP1.update(p1); //store local p1 object into firebase
+                //fP.update(stats);
                 isPlayer = true;
                 gameText.html("You are " + p1.name + ".<br>Choose rock, paper, or scissors.");
                 //console.log(yourName + " is player 1");
                 fP1.onDisconnect().remove(); //when user disconnects, remove object from firebase
             } else if (s.child("p2").exists() === false) {
                 p2.name = yourName;
+                //stats.players.p1Name = yourName;
+                //fP.update(stats);
                 fP2.update(p2);
                 isPlayer = true;
                 gameText.html("You are " + p2.name + ".<br>Choose rock, paper, or scissors.");
