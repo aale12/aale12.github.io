@@ -76,8 +76,7 @@ function updatePlayerDisplay(player, playerName) { // playerWins, playerLosses, 
 fP.on("value", function (s) {
     var fP1Choice = s.child("p1/choice").val();
     var fP2Choice = s.child("p2/choice").val();
-    if (s.child("p1").exists() === true) {
-        p1.name = s.child("p1/name").val();
+    if (s.child("p1").exists(  p1/name").val();
         updatePlayerDisplay("player1", s.child("p1/name").val()); //, s.child("p1/wins").val(), s.child("p1/losses").val(), s.child("p1/ties").val());
         if (refChoices.includes(fP1Choice)) {
             $("#p1-board").html("<img class = 'p-2 img-fluid' src='./assets/media/images/choicePend.png'>");
@@ -241,4 +240,4 @@ $("#chat-submit").on("click", function (event) {
 });
 fChat.on("child_added", function (snap) {
     $("#chatLog").append("<div>" + snap.val() + "</div>").scrollTop($("#chatLog")[0].scrollHeight);
-});
+}); 

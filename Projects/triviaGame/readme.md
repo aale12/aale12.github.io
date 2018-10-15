@@ -9,3 +9,4 @@ This is a Trivia Game, made with JQuery and BootStrap to showcase my skills with
 * There are 8 questions total.. Good Luck!
 
 
+[Deployed Page Here](https://aale12.github.io/Projects/triviaGame/index.html)

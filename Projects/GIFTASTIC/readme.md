@@ -9,4 +9,5 @@ This is a Gif searcher! It searches the Giphy API for 10 of the top related gifs
 * Click on the rating to copy the link to your clipboard!
 * You can toggle R rated gifs in the navbar.
 
+[Deployed Page Here](https://aale12.github.io/Projects/GIFTASTIC/index.html)
 

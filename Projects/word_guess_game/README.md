@@ -9,3 +9,4 @@ This Hangman Style word guessing game was made for the University of Texas at Au
 * Upon victory or loss, the win and loss counter will be updated until the page is refreshed, and a jingle will play.
   * **Warning:** The sound files are quite loud, so be prepared.
 
+[Deployed Page Here](https://aale12.github.io/Projects/word_guess_game/index.html)
